@@ -1,0 +1,17 @@
+*.*
+
+!*.css
+!*.less
+!*.graphql
+!*.js
+!*.jsx
+!*.json
+!*.md
+!*.ts
+!*.tsx
+!*.yml
+!*.xml
+!*.svg
+
+/build
+/node_modules

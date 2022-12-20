@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "start": "react-app-rewired start",
+    "fix": "yarn fix:prettier && yarn fix:eslint",
+    "fix:prettier": "prettier --write .",
+    "fix:eslint": "eslint --fix .",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"
@@ -48,9 +51,20 @@
   },
   "devDependencies": {
     "customize-cra": "^1.0.0",
+    "eslint": "^8.30.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.2",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
     "favicons": "^7.0.2",
     "favicons-webpack-plugin": "^6.0.0",
+    "prettier": "^2.8.1",
     "react-app-rewired": "^2.2.1",
     "webpack-bundle-analyzer": "^4.7.0"
+  },
+  "lint-staged": {
+    "*.*": "prettier --write",
+    "*.{js,jsx,ts,tsx,graphql}": "cross-env NODE_ENV=production eslint --cache --fix"
   }
 }

@@ -1,0 +1,10 @@
+*.*
+
+!*.graphql
+!*.js
+!*.jsx
+!*.ts
+!*.tsx
+
+node_modules
+/build
