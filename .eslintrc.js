@@ -41,9 +41,16 @@ module.exports = {
     "plugin:import/warnings",
     "plugin:import/typescript",
     "prettier",
-      "plugin:react/recommended"
+    "plugin:react/recommended",
   ],
-  plugins: ["react", "react-hooks", "simple-import-sort", "@typescript-eslint", "import", "json"],
+  plugins: [
+    "react",
+    "react-hooks",
+    "simple-import-sort",
+    "@typescript-eslint",
+    "import",
+    "json",
+  ],
   settings: {
     "import/resolver": {
       typescript: {
@@ -58,7 +65,6 @@ module.exports = {
     },
   },
   rules: {
-
     "no-console": [allowIfDev, { allow: ["warn", "error"] }],
     "no-debugger": allowIfDev,
     "@typescript-eslint/no-unused-vars": allowIfDev,

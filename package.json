@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-app-rewired start",
+    "dev": "react-app-rewired start",
     "fix": "yarn fix:prettier && yarn fix:eslint",
     "fix:prettier": "prettier --write .",
     "fix:eslint": "eslint --fix .",
