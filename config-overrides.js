@@ -1,5 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { override, addWebpackPlugin } = require("customize-cra");
+const {
+  override,
+  addWebpackPlugin,
+  overrideDevServer,
+} = require("customize-cra");
 
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
@@ -7,8 +11,8 @@ const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 const appName = "ToDo";
 
-const IS_PROD = process.env.NODE_ENV !== "development";
-//const IS_DEV = process.env.NODE_ENV === "development";
+const environment =
+  process.env.NODE_ENV === "production" ? "production" : "development";
 
 const webpack = override(
   (config) => {
@@ -44,7 +48,7 @@ const webpack = override(
       },
     }),
   ),
-  IS_PROD &&
+  environment === "production" &&
     addWebpackPlugin(
       new BundleAnalyzerPlugin({
         analyzerMode: "static",
@@ -52,4 +56,10 @@ const webpack = override(
       }),
     ),
 );
-module.exports = { webpack };
+
+const devServer =
+  environment === "development"
+    ? overrideDevServer(require("./server/dev").plugin)
+    : undefined;
+
+module.exports = { webpack, devServer };

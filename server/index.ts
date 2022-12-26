@@ -6,8 +6,12 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT;
 
-app.get("/", (req, res) => {
-  res.send("hello");
+app.get("/api/count", (req, res) => {
+  res.json({ count: 1 });
+});
+
+app.post("/count", (req, res) => {
+  console.log(req);
 });
 
 // eslint-disable-next-line no-console
