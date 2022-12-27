@@ -17,7 +17,6 @@ const App = (): JSX.Element => {
       res.json().then((db: Db) => setToDos(db)),
     );
   }, [newId]);
-
   const onSubmit = async (): Promise<void> => {
     const data = await fetch("/api/todos/add", {
       method: "POST",
